@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Explore Countries</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: whitesmoke;
+    color: black;
+}
+
+/* SECTION */
+
+.explore{
+    width:100%;
+    padding:80px 8%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.title h1{
+    font-size:55px;
+    margin-bottom:15px;
+    
+}
+
+.title p{
+    color: skyblue;
+    font-size:18px;
+    
+}
+
+/* CARDS */
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+.card{
+    background: black;
+    border-radius:25px;
+    overflow:hidden;
+    transition:0.5s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.content{
+    padding:25px;
+}
+
+.content h2{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.content p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+button{
+    padding:12px 28px;
+    border:none;
+    border-radius:40px;
+    background:#00f2fe;
+    color:black;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+/* POPUP */
+
+.popup{
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,0.7);
+    position:fixed;
+    top:0;
+    left:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.popup-content{
+    width:90%;
+    max-width:700px;
+    background:#1e293b;
+    border-radius:25px;
+    overflow:hidden;
+    position:relative;
+    animation:popup 0.5s;
+}
+
+@keyframes popup{
+
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.popup-content img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.popup-text{
+    padding:30px;
+}
+
+.popup-text h2{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.popup-text p{
+    line-height:1.9;
+    color:#cbd5e1;
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:35px;
+    cursor:pointer;
+    color:white;
+}
+
+@media(max-width:768px){
+
+    .title h1{
+        font-size:40px;
+    }
+
+    .popup-content img{
+        height:220px;
+    }
+
+}
+
+
+nav{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:black;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:2px solid white;
+}
+
+.logo h1{
+    font-size:32px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color: black;
+    font-size:17px;
+    transition:0.4s;
+}
+
+nav ul li::after{
+    content:"";
+    width:0%;
+    height:3px;
+    background: skyblue;
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    transition:0.5s;
+}
+
+nav ul li:hover::after{
+    width:100%;
+}
+
+nav ul li a:hover{
+    color: skyblue;
+}
+
+.right-nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.right-nav i{
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.contact-btn{
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background: skyblue;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.contact-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0px 5px 20px aqua;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<div class="logo">
+<img src="\static\t1.jpg">
+<h1>TravelX</h1>
+</div>
+
+<ul>
+<li><a href="\index">Home</a></li>
+<li><a href="#tour">Tours</a></li>
+<li><a href="#package">Packages</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#attractions">Attractions</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<div class="right-nav">
+<i class="fa-solid fa-magnifying-glass"></i>
+<i class="fa-regular fa-user"></i>
+
+<button type="submit" class="contact-btn"><a href="/book" style="text-decoration: none; color: whitesmoke;">Book Now</a></button>
+</div>
+
+</nav>
+<section class="explore">
+    <div class="title">
+        <h1>Explore Countries</h1>
+        <p>Discover beautiful destinations around the world</p>
+    </div>
+
+    <div class="container">
+
+        <!-- MALDIVES -->
+
+        <div class="card">
+
+            <img src="\static\Maldives.jpg">
+
+            <div class="content">
+
+                <h2 style="color: white;">Maldives</h2>
+
+                <p>Luxury beaches and crystal clear water.</p>
+
+                <button onclick="openPopup(
+                    'Maldives',
+                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop',
+                    'Maldives is famous for water villas, scuba diving, luxury resorts, and peaceful islands. Best time to visit is November to April.'
+                )">
+                    Explore More
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PARIS -->
+
+        <div class="card">
+
+            <img src="\static\Paris.jpg">
+
+            <div class="content">
+
+                <h2 style="color: white;">Paris</h2>
+
+                <p>Romantic city with beautiful landmarks.</p>
+
+                <button onclick="openPopup(
+                    'Paris',
+                    'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1200&auto=format&fit=crop',
+                    'Paris is famous for the Eiffel Tower, museums, fashion streets, cafes, and beautiful night views.'
+                )">
+                    Explore More
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- JAPAN -->
+
+        <div class="card">
+
+            <img src="\static\Japan.jpg">
+
+            <div class="content">
+
+                <h2 style="color: white;">Japan</h2>
+
+                <p>Anime culture and cherry blossoms.</p>
+
+                <button onclick="openPopup(
+                    'Japan',
+                    'https://images.unsplash.com/photo-1492571350019-22de08371fd3?q=80&w=1200&auto=format&fit=crop',
+                    'Japan is famous for Tokyo city, anime culture, temples, sushi, bullet trains, and Sakura flowers.'
+                )">
+                    Explore More
+                </button>
+
+            </div>
+
+        </div>
+        <!-- INDIA -->
+
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="content">
+
+        <h2 style="color: white;">India</h2>
+
+        <p>Historic temples and beautiful culture.</p>
+
+        <button onclick="openPopup(
+            'India',
+            'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1200&auto=format&fit=crop',
+            'India is famous for the Taj Mahal, Kerala backwaters, temples, festivals, mountains, beaches, and traditional foods.'
+        )">
+            Explore More
+        </button>
+
+    </div>
+
+</div>
+
+<!-- DUBAI -->
+
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="content">
+
+        <h2 style="color: white;">Dubai</h2>
+
+        <p>Luxury shopping and modern buildings.</p>
+
+        <button onclick="openPopup(
+            'Dubai',
+            'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop',
+            'Dubai is famous for Burj Khalifa, luxury hotels, desert safari, shopping malls, and beautiful night city views.'
+        )">
+            Explore More
+        </button>
+
+    </div>
+
+</div>
+
+<!-- SWITZERLAND -->
+
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="content">
+
+        <h2 style="color: white;">Switzerland</h2>
+
+        <p>Snow mountains and green valleys.</p>
+
+        <button onclick="openPopup(
+            'Switzerland',
+            'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop',
+            'Switzerland is famous for Alps mountains, skiing, chocolates, lakes, and scenic train journeys.'
+        )">
+            Explore More
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ITALY -->
+
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="content">
+
+        <h2 style="color: white;">Italy</h2>
+
+        <p>Ancient buildings and delicious food.</p>
+
+        <button onclick="openPopup(
+            'Italy',
+            'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop',
+            'Italy is famous for Rome city, pizza, pasta, Venice canals, historic buildings, and beautiful architecture.'
+        )">
+            Explore More
+        </button>
+
+    </div>
+
+</div>
+
+<!-- CANADA -->
+
+<div class="card">
+
+    <img src="\static\Canada.avif">
+
+    <div class="content">
+
+        <h2 style="color: white;">Canada</h2>
+
+        <p>Peaceful lakes and natural beauty.</p>
+
+        <button onclick="openPopup(
+            'Canada',
+            'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop',
+            'Canada is famous for Niagara Falls, snowy mountains, forests, lakes, and beautiful landscapes.'
+        )">
+            Explore More
+        </button>
+
+    </div>
+
+</div>
+
+<!-- AUSTRALIA -->
+
+<div class="card">
+
+    <img src="\static\Australia.avif">
+
+    <div class="content">
+
+        <h2>Australia</h2>
+
+        <p>Beaches and modern city life.</p>
+
+        <button onclick="openPopup(
+            'Australia',
+            'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop',
+            'Australia is famous for Sydney Opera House, beaches, wildlife, coral reefs, and adventure tourism.'
+        )">
+            Explore More
+        </button>
+
+    </div>
+
+</div>
+
+<!-- SINGAPORE -->
+
+<div class="card">
+
+    <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="content">
+
+        <h2 style="color: white;">Singapore</h2>
+
+        <p>Clean city and futuristic attractions.</p>
+
+        <button onclick="openPopup(
+            'Singapore',
+            'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1200&auto=format&fit=crop',
+            'Singapore is famous for Marina Bay Sands, Gardens by the Bay, shopping streets, and modern technology.'
+        )">
+            Explore More
+        </button>
+
+    </div>
+
+</div>
+
+    </div>
+
+</section>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-content">
+
+        <span class="close" onclick="closePopup()">&times;</span>
+
+        <img id="popup-img">
+
+        <div class="popup-text">
+
+            <h2 id="popup-title"></h2>
+
+            <p id="popup-description"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function openPopup(title,image,description){
+
+    document.getElementById("popup").style.display = "flex";
+
+    document.getElementById("popup-title").innerHTML = title;
+
+    document.getElementById("popup-img").src = image;
+
+    document.getElementById("popup-description").innerHTML = description;
+
+}
+
+function closePopup(){
+
+    document.getElementById("popup").style.display = "none";
+
+}crop
+
+</script>
+
+</body>
+</html>

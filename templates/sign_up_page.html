@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelX Sign Up</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600');
+    background-size:cover;
+    background-position:center;
+}
+
+.signup-box{
+    width:850px;
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:0 8px 32px rgba(0,0,0,.25);
+}
+
+.signup-box h1{
+    text-align:center;
+    color:#fff;
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.signup-box p{
+    text-align:center;
+    color:#fff;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.input-box{
+    position:relative;
+}
+
+.input-box i{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+    font-size:18px;
+}
+
+.input-box input,
+.input-box select{
+    width:100%;
+    padding:16px 16px 16px 50px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.18);
+    color:white;
+    font-size:16px;
+}
+
+.input-box input::placeholder{
+    color:white;
+}
+
+.input-box select{
+    cursor:pointer;
+}
+
+.input-box select option{
+    color:black;
+}
+
+.signup-btn{
+    width:100%;
+    margin-top:30px;
+    padding:16px;
+    border:none;
+    border-radius:50px;
+    background:#ff9800;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.signup-btn:hover{
+    transform:translateY(-3px);
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+    color:white;
+    font-size:16px;
+}
+
+.login-link a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.login-link a:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:768px){
+
+    .signup-box{
+        width:100%;
+        padding:25px;
+    }
+
+    .signup-box h1{
+        font-size:40px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="signup-box">
+
+    <h1>TravelX</h1>
+    <p>Create Your Travel Account ✈️</p>
+
+    <form action="/form" method="POST">
+
+        <div class="form-grid">
+
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="fullname" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-at"></i>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" name="useremail" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-calendar"></i>
+                <input type="date" name="dob" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-earth-asia"></i>
+                <select name="country" required>
+                    <option value="">Select Country</option>
+                    <option>India</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                    <option>Canada</option>
+                    <option>Australia</option>
+                    <option>Singapore</option>
+                    <option>Japan</option>
+                    <option>France</option>
+                    <option>Germany</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password"
+                placeholder="Create Password" required>
+            </div>
+
+            <div class="input-box" style="grid-column:span 2;">
+                <i class="fa-solid fa-shield-halved"></i>
+                <input type="password" name="confirm_password"
+                placeholder="Confirm Password" required>
+            </div>
+
+        </div>
+
+        <button type="submit" class="signup-btn">
+            Create Account
+        </button>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="\static\loginpage.html">Login Here</a>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

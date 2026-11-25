@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Website</title>
+<link rel="stylesheet" href="static/onlinemyproject.css">
+<link rel="shortcut icon" href="static/t1.jpg" type="image/x-icon">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<div class="logo">
+<img src="static/t1.jpg">
+<h1>TravelX</h1>
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#tour">Tours</a></li>
+<li><a href="#package">Packages</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#attractions">Attractions</a></li>  
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<div class="right-nav">
+<i class="fa-solid fa-magnifying-glass"></i>
+<i class="fa-regular fa-user"></i>
+
+<button type="submit" class="contact-btn"><a href="/book" style="text-decoration: none; color: whitesmoke;">Book Now</a></button>
+</div>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="content">
+
+<h3 id="home">DISCOVER THE WORLD</h3>
+
+<h1>Travel To The <span>Beautiful</span> Destinations</h1>
+
+<p>
+Travel gives unforgettable memories, adventure, relaxation and happiness. 
+Explore amazing places around the world with us.
+</p>
+
+<div class="hero-btns">
+<button class="btn btn1"><a href="\static\explorepage.html" style="text-decoration: none; color: white;">Explore More</a></button>
+<button class="btn btn2"><a href="static\travel.mp4" style="color: white; text-decoration: none;">Watch Video</a></button>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+<div class="search-box">
+<form action="/registor1 " method="POST">
+<label>Destination</label>
+<input type="text" name="FromPlace" id="" placeholder="From the place" required>
+<input type="text" name="ToPlace" id="" placeholder="To the place" required>
+</div>
+
+<div class="search-box">
+<label>Date</label>
+<input type="date" name="start_date" id="" placeholder="state date" required>
+<input type="date" name="End" placeholder="end date" required>
+</div>
+
+<div class="search-box">
+<label>Guests</label>
+<select name="guest" required>
+<option>1 Person</option>
+<option>2 Persons</option>
+<option>3 Persons</option>
+<option>4 Persons</option>
+<option>Infinity Members</option>
+</select>
+</div>
+
+<button class="search-btn">Registor</button>
+</form>    
+</section>
+
+<!-- ================= DESTINATIONS ================= -->
+
+<div class="section-title">
+<h1 id="tour">Popular Destinations</h1>
+<p>Explore the most beautiful tourist places around the world</p>
+</div>
+
+<section class="places">
+
+<div class="card">
+
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="card-content">
+
+<div class="top-card">
+<h2>Paris</h2>
+<div class="rating">4.8 ★</div>
+</div>
+
+<p>
+Enjoy the city of lights, romantic atmosphere and beautiful tourist attractions.
+</p>
+
+<div class="bottom-card">
+<div class="price">$1200</div>
+<button class="book-btn"><a href="book" style="text-decoration: none; color: white;">Book Now</a></button>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="card-content">
+
+<div class="top-card">
+<h2>Maldives</h2>
+<div class="rating">4.9 ★</div>
+</div>
+
+<p>
+Crystal clear beaches, luxury resorts and relaxing vacation experience.
+</p>
+
+<div class="bottom-card">
+<div class="price">$1500</div>
+<button class="book-btn"><a href="book" style="text-decoration: none; color: white;">Book Now</a></button>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="card-content">
+
+<div class="top-card">
+<h2>Dubai</h2>
+<div class="rating">4.7 ★</div>
+</div>
+
+<p>
+Modern architecture, luxury shopping and exciting desert safari adventures.
+</p>
+
+<div class="bottom-card">
+<div class="price">$1800</div>
+<button class="book-btn"><a href="book" style="text-decoration: none; color: white;">Book Now</a></button>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services">
+
+<div class="section-title">
+<h1 id="package">Our Services</h1>
+<p>We provide the best travel experience for customers</p>
+</div>
+
+<div class="service-container">
+
+<div class="service">
+<i class="fa-solid fa-plane"></i>
+<h2>Flight Booking</h2>
+<p>Easy international and domestic flight booking services.</p>
+</div>
+
+<div class="service">
+<i class="fa-solid fa-hotel"></i>
+<h2>Hotel Booking</h2>
+<p>Book luxury hotels and resorts with affordable prices.</p>
+</div>
+
+<div class="service">
+<i class="fa-solid fa-map-location-dot"></i>
+<h2>Tour Guide</h2>
+<p>Professional guides for safe and enjoyable travel experience.</p>
+</div>
+
+<div class="service">
+<i class="fa-solid fa-passport"></i>
+<h2>Visa Support</h2>
+<p>Fast visa processing and travel documentation support.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section class="gallery">
+
+<div class="section-title">
+<h1 id="gallery">Travel Gallery</h1>
+<p>Beautiful moments from our travel destinations</p>
+</div>
+
+<div class="gallery-box">
+
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</section>
+<div class="attractions">
+    <center>
+    <h1 id="attractions" style="font-family: 'Poppins',sans-serif; font-size:50px;
+    color:#222;">Attractions</h1>
+    <p style="font-size: 15px; color: gray; position: relative; top: 20px; font-family: 'Poppins',sans-serif;">Here's a list of top attractions in Tamil Nadu that you must experience at the very next opportunity.
+
+</p>
+    </center>
+    <img src="static/attraction1.webp" alt="" width="500px" style="position: relative; bottom: -120px; left: 65px; border-radius: 20px; box-shadow: 0 0 15px black;">
+</div>
+<div class="attractions">
+    <img src="static/attraction2.webp" alt="" width="400px" height="400px" style="position: relative; left: 580px; bottom: 170px; border-radius: 20px; box-shadow: 0 0 15px black;">
+    <img src="static/attraction4.webp" alt="" width="300px" height="350px" style="position: relative; right: 300px; bottom: -90px; border-radius: 20px; box-shadow: 0 0 15px black;">
+    <img src="static/attraction3.webp" alt="" width="300px" style="position: relative; left: 285px; bottom: 178px; border-radius: 20px; box-shadow: 0 0 15px black;">
+    <img src="static/attraction6.webp" alt="" width="400px" height="250px" style="position: relative; left: 450px; bottom: 170px; box-shadow: 0 0 15px black; border-radius: 20px;">
+    <img src="static/attraction7.webp" alt="" width="450px" style="position: relative; left: 470px; bottom: 165px; border-radius: 20px; box-shadow: 0 0 15px black;">
+</div>
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-box">
+<h2>TravelX</h2>
+
+<p>
+Travel with comfort and explore the most beautiful destinations around the world.
+</p>
+
+<div class="social-icons">
+<a href="https://facebook.com" style="color: white;"><i class="fa-brands fa-facebook-f"></i></a>
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-twitter"></i>
+<i class="fa-brands fa-youtube"></i>
+</div>
+
+</div>
+
+<div class="footer-box">
+<h2>Quick Links</h2>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#tour">Tours</a></li>
+<li><a href="#package">Packages</a></li>
+<li><a href="#gallery">Gallery</a></li>
+</ul>
+
+</div>
+
+<div class="footer-box">
+<h2>Support</h2>
+
+<ul>
+<li><a href="#">Help Center</a></li>
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Terms & Conditions</a></li>
+<li><a href="#">FAQs</a></li>
+</ul>
+
+</div>
+
+<div class="footer-box">
+<h2 id="contact">Contact</h2>
+
+<p>Email : travelx@gmail.com</p>
+<p>Phone : +91 9965430592</p>
+<p>Location : Trichy, India</p>
+
+</div>
+
+</div>
+
+<div class="bottom-footer">
+<p>© 2026 TravelX | All Rights Reserved</p>
+</div>
+
+</footer>
+<script>
+
+document.addEventListener("mousemove",(e)=>{
+
+document.querySelector(".hero").style.backgroundPosition =
+e.clientX / 50 + "px " +
+e.clientY / 50 + "px";
+
+});
+
+</script>
+</body>
+</html>

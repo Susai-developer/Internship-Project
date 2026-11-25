@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelX Login</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600');
+    background-size:cover;
+    background-position:center;
+}
+
+.login-box{
+    width:450px;
+    padding:45px;
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:0 8px 32px rgba(0,0,0,.25);
+}
+
+.login-box h1{
+    text-align:center;
+    color:white;
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.login-box p{
+    text-align:center;
+    color:white;
+    margin-bottom:35px;
+    font-size:18px;
+}
+
+.input-box{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-box i{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+    font-size:18px;
+}
+
+.input-box input{
+    width:100%;
+    padding:16px 16px 16px 50px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.18);
+    color:white;
+    font-size:16px;
+}
+
+.input-box input::placeholder{
+    color:white;
+}
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    color:white;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.options a{
+    color:white;
+    text-decoration:none;
+}
+
+.options a:hover{
+    text-decoration:underline;
+}
+
+.login-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:50px;
+    background:#ff9800;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.login-btn:hover{
+    transform:translateY(-3px);
+}
+
+.register{
+    text-align:center;
+    margin-top:25px;
+    color:white;
+}
+
+.register a{
+    color:#fff;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.register a:hover{
+    text-decoration:underline;
+}
+
+</style>
+</head>
+<body>
+
+<div class="login-box">
+
+    <h1>TravelX</h1>
+
+    <p>Welcome Back Traveler ✈️</p>
+
+    <form action="\login" method="POST">
+
+        <div class="input-box">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="useremail" placeholder="Email Address" required>
+        </div>
+
+        <div class="input-box">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <div class="options">
+            <label>
+                <input type="checkbox">
+                Remember Me
+            </label>
+
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-btn">
+            Login
+        </button>
+
+        <div class="register">
+            Don't have an account?
+            <a href="#">Register Now</a>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
