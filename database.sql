@@ -1,0 +1,18 @@
+create database Tx;
+use Tx;
+CREATE TABLE travel_list(place varchar(50),date int,person varchar(50));
+select*from travel_list;
+alter table travel_list add reg_no int auto_increment primary key;
+alter table travel_list drop column person;
+alter table travel_list modify date DATE;
+alter table travel_list modify date varchar(50);
+drop table travel_list;
+CREATE TABLE travel_list(Count int auto_increment primary key, FromPlace varchar(30), ToPlace varchar(30),Start varchar(50),End varchar(50));
+select*from travel_list;
+CREATE TABLE book_list(count int auto_increment primary key, name varchar(50), your_email varchar(50), phone varchar(50), place varchar(50), start_date varchar(50), person varchar(50));
+select*from book_list;
+alter table book_list add Special_Request varchar(100);
+alter table travel_list add guest varchar(50);
+CREATE TABLE signup(count int auto_increment primary key, fullname varchar(50), username varchar(50), useremail varchar(50), dob varchar(50), country varchar(50), password varchar(50), confirm_passord varchar(50));
+select*from signup;
+alter table signup rename column confirm_passord to confirm_password;
