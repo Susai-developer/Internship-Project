@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
+import os
 
 app = Flask(__name__)
 
@@ -10,7 +11,6 @@ def health():
 @app.route('/test')
 def test():
     return "TravelX Website Backend Working Successfully!"
-import os
 
 def get_connection():
     return mysql.connector.connect(
@@ -27,23 +27,49 @@ def signup():
 
 @app.route('/form', methods=['POST'])
 def form():
-    fullname = request.form['fullname']
-    username = request.form['username']
-    useremail = request.form['useremail']
-    dob = request.form['dob']
-    country = request.form['country']
-    password = request.form['password']
-    confirm_password = request.form['confirm_password'] 
-    insert_query3 = """
-    INSERT INTO signup(fullname, username, useremail, dob, country, password, confirm_password)
-    VALUES(%s, %s, %s, %s, %s, %s, %s)
-    """
+    connection = None
+    cursor = None
 
-    values3 = (fullname, username, useremail, dob, country, password, confirm_password)
- 
-    cursor.execute(insert_query3, values3)
-    connection.commit()
-    return render_template('loginpage.html')
+    try:
+        fullname = request.form['fullname']
+        username = request.form['username']
+        useremail = request.form['useremail']
+        dob = request.form['dob']
+        country = request.form['country']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        if password != confirm_password:
+            return "Passwords do not match", 400
+
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        query = """
+        INSERT INTO signup
+        (fullname, username, useremail, dob, country, password, confirm_password)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """
+
+        values = (
+            fullname, username, useremail,
+            dob, country, password, confirm_password
+        )
+
+        cursor.execute(query, values)
+        connection.commit()
+
+        return render_template('loginpage.html')
+
+    except Exception:
+        app.logger.exception("Registration failed")
+        return "Registration failed. Please check server logs.", 500
+
+    finally:
+        if cursor:
+            cursor.close()
+        if connection and connection.is_connected():
+            connection.close()
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
