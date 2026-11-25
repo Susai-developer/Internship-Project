@@ -7,7 +7,9 @@ app = Flask(__name__)
 @app.route('/health')
 def health():
     return "TravelX Flask Application is Running Successfully!"
-
+@app.route('/test')
+def test():
+    return "TravelX Website Backend Working Successfully!"
 import os
 
 def get_connection():
