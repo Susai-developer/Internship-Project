@@ -157,7 +157,7 @@ body{
     <h1>TravelX</h1>
     <p>Create Your Travel Account ✈️</p>
 
-    <form action="/form" method="POST">
+    <form action="{{ url_for('form') }}" method="POST">
 
         <div class="form-grid">
 
@@ -217,7 +217,7 @@ body{
 
         <div class="login-link">
             Already have an account?
-            <a href="\static\loginpage.html">Login Here</a>
+            <a href="{{ url_for('login') }}">Login Here</a>
         </div>
 
     </form>
